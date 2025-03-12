@@ -9,5 +9,6 @@ return [
     'active' => 'Active',
     'history' => 'History',
     'inactive' => 'Inactive',
-    'all' => 'All'
+    'all' => 'All',
+    'qr_code' => "QR code"
 ];
