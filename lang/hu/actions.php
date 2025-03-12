@@ -1,4 +1,5 @@
 <?php
 return [
-    'print' => 'Nyomtatás'
+    'print' => 'Nyomtatás',
+    'download' => 'Letöltés'
 ];

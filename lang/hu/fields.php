@@ -10,5 +10,6 @@ return [
     'history' => 'Történet',
     'inactive' => 'Inaktív',
     'all' => 'Mind',
-    'qr_code' => "QR kód"
+    'qr_code' => 'QR kód',
+    'attachment' => 'Csatolt fájl'
 ];
