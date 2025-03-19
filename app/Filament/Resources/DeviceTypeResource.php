@@ -19,6 +19,8 @@ class DeviceTypeResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-wrench-screwdriver';
 
+    protected static ?int $navigationSort = 1;
+
     public static function getNavigationGroup(): string
     {
         return __('module_names.navigation_groups.administration');
