@@ -16,11 +16,11 @@ class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use /*HasApiTokens,*/ HasFactory, Notifiable, HasRoles;
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return str_ends_with($this->email, '@localhost.com');
+        return str_ends_with($this->email, '@admin.hu');
     }
 
     /**

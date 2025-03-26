@@ -11,5 +11,7 @@ return [
     'inactive' => 'Inactive',
     'all' => 'All',
     'qr_code' => 'QR code',
-    'attachment' => 'Attachment'
+    'attachment' => 'Attachment',
+    'yes' => 'Yes',
+    'no' => 'No'
 ];

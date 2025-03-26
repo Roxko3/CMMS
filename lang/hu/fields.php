@@ -11,5 +11,7 @@ return [
     'inactive' => 'Inaktív',
     'all' => 'Mind',
     'qr_code' => 'QR kód',
-    'attachment' => 'Csatolt fájl'
+    'attachment' => 'Csatolt fájl',
+    'yes' => 'Igen',
+    'no' => 'Nem'
 ];
