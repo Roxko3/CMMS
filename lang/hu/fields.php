@@ -13,5 +13,8 @@ return [
     'qr_code' => 'QR kód',
     'attachment' => 'Csatolt fájl',
     'yes' => 'Igen',
-    'no' => 'Nem'
+    'no' => 'Nem',
+    'password' => 'Jelszó',
+    'new_password' => 'Új jelszó',
+    'deleted_at' => 'Törölve'
 ];

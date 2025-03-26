@@ -13,5 +13,8 @@ return [
     'qr_code' => 'QR code',
     'attachment' => 'Attachment',
     'yes' => 'Yes',
-    'no' => 'No'
+    'no' => 'No',
+    'password' => 'Password',
+    'new_password' => 'New password',
+    'deleted_at' => 'Deleted at'
 ];
