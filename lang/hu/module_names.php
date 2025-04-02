@@ -27,5 +27,8 @@ return [
     'users' => [
         'label' => 'Felhasználó',
         'plural_label' => 'Felhasználók',
+    ],
+    'widgets' => [
+        'usersbyroles' => 'Felhasználók szerepkörök szerint'
     ]
 ];

@@ -27,5 +27,8 @@ return [
     'users' => [
         'label' => 'User',
         'plural_label' => 'Users',
+    ],
+    'widgets' => [
+        'usersbyroles' => 'Users by roles'
     ]
 ];
