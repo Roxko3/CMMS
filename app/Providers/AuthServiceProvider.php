@@ -7,12 +7,14 @@ use App\Models\User;
 use App\Models\Device;
 use App\Models\Document;
 use App\Models\DeviceType;
+use App\Models\Worksheet;
 use App\Policies\RolePolicy;
 use App\Policies\UserPolicy;
 use App\Policies\DevicePolicy;
 use App\Policies\DocumentPolicy;
 use App\Policies\DeviceTypePolicy;
 use App\Policies\PermissionPolicy;
+use App\Policies\WorksheetPolicy;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -32,6 +34,7 @@ class AuthServiceProvider extends ServiceProvider
     DeviceType::class => DeviceTypePolicy::class,
     Device::class => DevicePolicy::class,
     Document::class => DocumentPolicy::class,
+    Worksheet::class => WorksheetPolicy::class,
   ];
 
   /**

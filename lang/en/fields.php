@@ -15,6 +15,14 @@ return [
     'yes' => 'Yes',
     'no' => 'No',
     'password' => 'Password',
+    'email' => 'Email',
     'new_password' => 'New password',
-    'deleted_at' => 'Deleted at'
+    'deleted_at' => 'Deleted at',
+    'creator' => 'Creator',
+    'repairer' => 'Repairer',
+    'priority' => 'Priority',
+    'description' => 'Description',
+    'due_date' => 'Due date',
+    'finish_date' => 'Finish date',
+    'attachments' => 'Attachments'
 ];

@@ -15,6 +15,14 @@ return [
     'yes' => 'Igen',
     'no' => 'Nem',
     'password' => 'Jelszó',
+    'email' => 'Email',
     'new_password' => 'Új jelszó',
-    'deleted_at' => 'Törölve'
+    'deleted_at' => 'Törölve',
+    'creator' => 'Létrehozó',
+    'repairer' => 'Karbantartó',
+    'priority' => 'Prioritás',
+    'description' => 'Leírás',
+    'due_date' => 'Javítási határidő',
+    'finish_date' => 'Befejezés dátuma',
+    'attachments' => 'Csatolt fájlok'
 ];
