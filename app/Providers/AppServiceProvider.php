@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use BezhanSalleh\FilamentLanguageSwitch\LanguageSwitch;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 
@@ -24,5 +25,9 @@ class AppServiceProvider extends ServiceProvider
             ->getDoctrineSchemaManager()
             ->getDatabasePlatform()
             ->registerDoctrineTypeMapping('enum', 'string');*/
+        LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
+            $switch
+                ->locales(['hu', 'en']); // also accepts a closure
+        });
     }
 }
