@@ -17,6 +17,9 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Visualbuilder\EmailTemplates\EmailTemplatesPlugin;
+use Vormkracht10\FilamentMails\Facades\FilamentMails;
+use Vormkracht10\FilamentMails\FilamentMailsPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -53,6 +56,11 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->routes(fn () => FilamentMails::routes())
+            ->plugins([
+                FilamentMailsPlugin::make(),
+                EmailTemplatesPlugin::make(),
             ]);
     }
 }
