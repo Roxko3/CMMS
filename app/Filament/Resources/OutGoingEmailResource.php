@@ -19,8 +19,23 @@ class OutGoingEmailResource extends Resource
 {
     protected static ?string $model = OutGoingMail::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-envelope';
-    protected static ?string $navigationGroup = 'Email';
+    protected static ?string $navigationIcon = 'heroicon-o-paper-airplane';
+
+
+    public static function getNavigationGroup(): string
+    {
+        return __('module_names.navigation_groups.email');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('module_names.email.label');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('module_names.email.plural_label');
+    }
 
     public static function form(Form $form): Form
     {
@@ -28,11 +43,12 @@ class OutGoingEmailResource extends Resource
             ->schema([
                 // Basic form fields
                 Forms\Components\TextInput::make('name')
+                    ->label(__('fields.name'))
                     ->required(),
 
                 // Email Template Selection
                 Forms\Components\Select::make('email_template_key')
-                    ->label('Email Template')
+                    ->label(__('fields.email_template'))
                     ->options(function () {
                         return EmailTemplate::all()
                             ->pluck('title', 'key')
@@ -53,14 +69,14 @@ class OutGoingEmailResource extends Resource
 
                 // Preview the selected template subject
                 Forms\Components\TextInput::make('email_subject')
-                    ->label('Email Subject Preview')
+                    ->label(__('fields.email_subject'))
                     ->disabled()
                     ->dehydrated(false)
                     ->visible(fn($get) => filled($get('email_template_key'))),
 
                 // Preview the template content (first 200 chars)
                 Forms\Components\Textarea::make('email_content_preview')
-                    ->label('Email Content Preview')
+                    ->label(__('fields.email_content'))
                     ->disabled()
                     ->dehydrated(false)
                     ->rows(4)
@@ -68,55 +84,21 @@ class OutGoingEmailResource extends Resource
 
                 // Additional fields for customization
                 Forms\Components\KeyValue::make('email_tokens')
-                    ->label('Email Template Tokens')
-                    ->helperText('Define custom tokens for this email (e.g., customer_name, order_number)')
-                    ->keyLabel('Token Name')
-                    ->valueLabel('Token Value')
-                    ->addActionLabel('Add Token')
+                    ->label(__('fields.email_tokens'))
+                    ->helperText(__('fields.token_helpertext'))
+                    ->keyLabel(__('fields.token_name'))
+                    ->valueLabel(__('fields.token_value'))
+                    ->addActionLabel(__('fields.add_token'))
                     ->default([])
                     ->visible(fn($get) => filled($get('email_template_key'))),
 
                 // Recipient configuration
                 Forms\Components\TextInput::make('recipient_email')
-                    ->label('Recipient Email')
+                    ->label(__('fields.email_recepient'))
                     ->email()
                     ->required(),
 
-                // Language selection (if multilingual)
-                Forms\Components\Select::make('language')
-                    ->label('Language')
-                    ->options([
-                        'en_GB' => 'British English',
-                        'en_US' => 'American English',
-                        'es' => 'Español',
-                        'fr' => 'Français',
-                    ])
-                    ->default('en_GB')
-                    ->live()
-                    ->afterStateUpdated(function ($state, $get, $set) {
-                        // Reload template content for selected language
-                        $templateKey = $get('email_template_key');
-                        if ($templateKey && $state) {
-                            $template = EmailTemplate::where('key', $templateKey)
-                                ->where('language', $state)
-                                ->first();
-                            if ($template) {
-                                $set('email_subject', $template->subject);
-                                $set('email_content_preview', strip_tags($template->content));
-                            }
-                        }
-                    }),
 
-                // Send immediately option
-                Forms\Components\Toggle::make('send_immediately')
-                    ->label('Send Email Immediately')
-                    ->default(false),
-
-                // Schedule sending
-                Forms\Components\DateTimePicker::make('scheduled_at')
-                    ->label('Schedule Send Time')
-                    ->visible(fn($get) => !$get('send_immediately'))
-                    ->native(false),
             ]);
     }
 
@@ -125,9 +107,9 @@ class OutGoingEmailResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('to'),
-                Tables\Columns\TextColumn::make('subject'),
-                Tables\Columns\TextColumn::make('created_at')->dateTime(),
+                Tables\Columns\TextColumn::make('to')->label(__('fields.email_recepient')),
+                Tables\Columns\TextColumn::make('subject')->label(__('fields.email_subject')),
+                Tables\Columns\TextColumn::make('created_at')->dateTime()->label(__('fields.created_at')),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

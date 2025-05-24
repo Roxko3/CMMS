@@ -3,7 +3,8 @@ return [
     'navigation_groups' => [
         'administration' => 'Adminisztráció',
         'maintenance' => 'Karbantartás',
-        'failure_report' => 'Hibabejelentés'
+        'failure_report' => 'Hibabejelentés',
+        'email' => 'Email'
     ],
     'device_types' => [
         'label' => 'Berendezés típus',
@@ -35,5 +36,9 @@ return [
     'worksheets' => [
         'label' => 'Munkalap',
         'plural_label' => 'Munkalapok',
+    ],
+    'email' => [
+        'label' => 'Email küldése',
+        'plural_label' => 'Emailek küldése',
     ]
 ];

@@ -3,7 +3,8 @@ return [
     'navigation_groups' => [
         'administration' => 'Administration',
         'maintenance' => 'Maintenance',
-        'failure_report' => 'Failure report'
+        'failure_report' => 'Failure report',
+        'email' => 'Email'
     ],
     'device_types' => [
         'label' => 'Device type',
@@ -35,5 +36,9 @@ return [
     'worksheets' => [
         'label' => 'Worksheet',
         'plural_label' => 'Worksheet',
+    ],
+    'email' => [
+        'label' => 'Send email',
+        'plural_label' => 'Send emails',
     ]
 ];

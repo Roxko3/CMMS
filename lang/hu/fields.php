@@ -24,5 +24,14 @@ return [
     'description' => 'Leírás',
     'due_date' => 'Javítási határidő',
     'finish_date' => 'Befejezés dátuma',
-    'attachments' => 'Csatolt fájlok'
+    'attachments' => 'Csatolt fájlok',
+    'email_template' => 'Email sablon',
+    'email_subject' => 'Email tárgy előnézet',
+    'email_content' => 'Email tartalom előnézet',
+    'email_recepient' => 'Címzett',
+    'email_tokens' => 'Email sablon tokenek',
+    'token_name' => 'Token név',
+    'token_value' => 'Token érték',
+    'add_token' => 'Token hozzáadása',
+    'token_helpertext' => 'Egyedi tokenek megadása az emailhez (pl.: customer_name, order_number)',
 ];
