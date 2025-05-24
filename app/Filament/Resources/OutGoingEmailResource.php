@@ -41,9 +41,10 @@ class OutGoingEmailResource extends Resource
     {
         return $form
             ->schema([
-                // Basic form fields
-                Forms\Components\TextInput::make('name')
-                    ->label(__('fields.name'))
+                // Recipient configuration
+                Forms\Components\TextInput::make('recipient_email')
+                    ->label(__('fields.email_recepient'))
+                    ->email()
                     ->required(),
 
                 // Email Template Selection
@@ -91,12 +92,6 @@ class OutGoingEmailResource extends Resource
                     ->addActionLabel(__('fields.add_token'))
                     ->default([])
                     ->visible(fn($get) => filled($get('email_template_key'))),
-
-                // Recipient configuration
-                Forms\Components\TextInput::make('recipient_email')
-                    ->label(__('fields.email_recepient'))
-                    ->email()
-                    ->required(),
 
 
             ]);
