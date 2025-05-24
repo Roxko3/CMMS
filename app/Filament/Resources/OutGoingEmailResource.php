@@ -42,10 +42,11 @@ class OutGoingEmailResource extends Resource
         return $form
             ->schema([
                 // Recipient configuration
-                Forms\Components\TextInput::make('recipient_email')
-                    ->label(__('fields.email_recepient'))
-                    ->email()
-                    ->required(),
+                Forms\Components\Textarea::make('recipient_emails')
+                ->label(__('fields.email_recepient'))
+                ->required()
+                ->helperText(__('fields.recepient_helpertext'))
+                ->rows(2),
 
                 // Email Template Selection
                 Forms\Components\Select::make('email_template_key')

@@ -28,10 +28,11 @@ return [
     'email_template' => 'Email sablon',
     'email_subject' => 'Email tárgy előnézet',
     'email_content' => 'Email tartalom előnézet',
-    'email_recepient' => 'Címzett',
+    'email_recepient' => 'Címzett(ek)',
     'email_tokens' => 'Email sablon tokenek',
     'token_name' => 'Token név',
     'token_value' => 'Token érték',
     'add_token' => 'Token hozzáadása',
     'token_helpertext' => 'Egyedi tokenek megadása az emailhez (pl.: customer_name, order_number)',
+    'recepient_helpertext' => 'Az email címeket vesszővel válaszd el.'
 ];

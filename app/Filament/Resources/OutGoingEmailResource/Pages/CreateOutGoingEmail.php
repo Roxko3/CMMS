@@ -14,36 +14,36 @@ class CreateOutGoingEmail extends CreateRecord
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
-        // Fetch the email template
         $template = EmailTemplate::where('key', $data['email_template_key'])->firstOrFail();
 
-        // Replace tokens in the template content
+        // Replace tokens in the content
         $html = $template->content;
         foreach ($data['email_tokens'] ?? [] as $key => $value) {
             $html = str_replace("{{ $key }}", $value, $html);
         }
 
-        // Send the email
+        // Handle multiple recipients (comma-separated)
+        $emails = array_filter(array_map('trim', explode(',', $data['recipient_emails'])));
+
         try {
-            Mail::html($html, function ($message) use ($data, $template) {
-                $message->to($data['recipient_email'])
+            Mail::html($html, function ($message) use ($emails, $template) {
+                $message->to($emails)
                         ->subject($template->subject);
             });
         } catch (\Exception $e) {
             Notification::make()
-                ->title(__('Email sending failed'))
+                ->title('Email sending failed')
                 ->body($e->getMessage())
                 ->danger()
                 ->send();
 
-            // Optionally prevent saving if mail fails
             throw $e;
         }
 
-        // Set fields to be saved in the database
+        // Save final values to DB
         $data['html_body'] = $html;
         $data['subject'] = $template->subject;
-        $data['to'] = $data['recipient_email'];
+        $data['to'] = implode(', ', $emails);
 
         return $data;
     }

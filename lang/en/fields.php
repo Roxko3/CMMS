@@ -28,10 +28,11 @@ return [
     'email_template' => 'Email template',
     'email_subject' => 'Email subject preview',
     'email_content' => 'Email content preview',
-    'email_recepient' => 'Email Recipient',
+    'email_recepient' => 'Email Recipient(s)',
     'email_tokens' => 'Email template tokens',
     'token_name' => 'Token name',
     'token_value' => 'Token value',
     'add_token' => 'Add token',
     'token_helpertext' => 'Define custom tokens for this email (e.g., customer_name, order_number)',
+    'recepient_helpertext' => 'Separate multiple email addresses with commas.'
 ];
